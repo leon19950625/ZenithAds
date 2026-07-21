@@ -133,7 +133,7 @@
         }
 
         .hero-logo-img {
-            max-width: 360px;
+            max-width: 252px;
             width: 80%;
             height: auto;
             display: inline-block;
@@ -517,7 +517,14 @@
     <!-- ===== 导航栏 ===== -->
     <nav class="navbar container">
         <!-- 左上角显示纯文字 Zenith -->
-        <div class="logo">Zenith</div>
+        <div class="logo">
+         <img src="./logo.png" alt="Zenith" class="nav-logo" />
+        </div>
+        .nav-logo {
+    height: 32px;   /* 调整这个值控制导航栏 Logo 高度 */
+    width: auto;    /* 宽度自动按比例缩放 */
+    display: block;
+}
         <div class="nav-links">
             <a href="#about" data-key="nav_about">关于</a>
             <a href="#services" data-key="nav_services">业务</a>
