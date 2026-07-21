@@ -96,6 +96,14 @@
             user-select: none;
             letter-spacing: 0.5px;
         }
+        css
+
+        .nav-logo {
+        height: 32px;
+        width: auto;
+        display: block;
+
+        }
 
         .lang-toggle:hover {
             border-color: #4f8cf7;
@@ -517,7 +525,11 @@
     <!-- ===== 导航栏 ===== -->
     <nav class="navbar container">
         <!-- 左上角显示纯文字 Zenith -->
-        <div class="logo">Zenith</div>
+        <div class="logo">
+            <img src="./logo.png.jpg" alt="Zenith" class="nav-logo" />
+        </div>
+
+        
         <div class="nav-links">
             <a href="#about" data-key="nav_about">关于</a>
             <a href="#services" data-key="nav_services">业务</a>
