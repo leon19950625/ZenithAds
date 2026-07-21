@@ -554,7 +554,7 @@
         <div class="container">
             <img 
                 src="https://picsum.photos/seed/tech/1200/400" 
-                alt="互联网科技配图" 
+                alt="./banner.png" 
                 loading="lazy"
             />
         </div>
