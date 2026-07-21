@@ -517,9 +517,7 @@
     <!-- ===== 导航栏 ===== -->
     <nav class="navbar container">
         <!-- 左上角显示纯文字 Zenith -->
-        <div class="logo">
-         <img src="./logo.png" alt="Zenith" class="nav-logo" />
-        </div>
+        <div class="logo">Zenith</div>
         <div class="nav-links">
             <a href="#about" data-key="nav_about">关于</a>
             <a href="#services" data-key="nav_services">业务</a>
