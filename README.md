@@ -553,8 +553,8 @@
     <section class="fixed-image-section">
         <div class="container">
             <img 
-                src="https://picsum.photos/seed/tech/1200/400" 
-                alt="./banner.png" 
+                src="./banner.png" 
+                alt="配图" 
                 loading="lazy"
             />
         </div>
