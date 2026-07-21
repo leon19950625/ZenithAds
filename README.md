@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Zenith | 数字广告平台</title>
+    <title>Zenith | 数字广告平台</title>
     <style>
         /* ===== 全局平滑滚动 ===== */
         html {
@@ -535,15 +535,15 @@
             <div class="hero-logo">
                 <img 
                     src="./logo.png" 
-                    alt="The Zenith Logo" 
+                    alt="Zenith Logo" 
                     class="hero-logo-img"
-                    onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'hero-logo-fallback\'>The Zenith</span>';"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'hero-logo-fallback\'>Zenith</span>';"
                 />
             </div>
             <h1 data-key="hero_title">引领数字<span>效果营销</span></h1>
             <p data-key="hero_sub">精益数字营销，助您精准触达全球高质量流量</p>
             <div class="desc" data-key="hero_desc">
-                The Zenith 是一家专业从事性能营销的数字广告平台，以深刻的数据驱动洞察和商业专业知识为核心竞争力。
+                Zenith 是一家专业从事性能营销的数字广告平台，以深刻的数据驱动洞察和商业专业知识为核心竞争力。
                 致力于提供高效的多媒体营销解决方案和流量获取服务，旨在最大化广告主的投资回报率（ROI）。
             </div>
         </div>
@@ -565,7 +565,7 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-text">
-                    <h2 data-key="about_title">关于 The Zenith</h2>
+                    <h2 data-key="about_title">关于 Zenith</h2>
                     <p data-key="about_p1">
                         我们不仅仅是数字广告平台，更是您成功数字营销策略的战略合作伙伴。我们深知市场变化，致力于不断创新，
                         以确保您的广告投资取得卓越成果。
@@ -729,7 +729,7 @@
     <!-- ===== 页脚 ===== -->
     <div class="footer">
         <div class="container">
-            &copy; 2026 The Zenith. <span data-key="footer_rights">All rights reserved.</span>
+            &copy; 2026 Zenith. <span data-key="footer_rights">All rights reserved.</span>
         </div>
     </div>
 
@@ -745,8 +745,8 @@
                 hero_badge: '✦ 全域资源覆盖 · 数据驱动洞察',
                 hero_title: '引领数字<span>效果营销</span>',
                 hero_sub: '精益数字营销，助您精准触达全球高质量流量',
-                hero_desc: 'The Zenith 是一家专业从事性能营销的数字广告平台，以深刻的数据驱动洞察和商业专业知识为核心竞争力。致力于提供高效的多媒体营销解决方案和流量获取服务，旨在最大化广告主的投资回报率（ROI）。',
-                about_title: '关于 The Zenith',
+                hero_desc: 'Zenith 是一家专业从事性能营销的数字广告平台，以深刻的数据驱动洞察和商业专业知识为核心竞争力。致力于提供高效的多媒体营销解决方案和流量获取服务，旨在最大化广告主的投资回报率（ROI）。',
+                about_title: '关于 Zenith',
                 about_p1: '我们不仅仅是数字广告平台，更是您成功数字营销策略的战略合作伙伴。我们深知市场变化，致力于不断创新，以确保您的广告投资取得卓越成果。',
                 about_p2: '让我们携手打造卓越的数字营销之路，为您的业务增长提供坚实支持。',
                 stat_countries: '覆盖国家/地区',
@@ -783,8 +783,8 @@
                 hero_badge: '✦ Global Coverage · Data-Driven Insights',
                 hero_title: 'Leading Digital <span>Performance Marketing</span>',
                 hero_sub: 'Precision digital marketing to reach high-quality global traffic',
-                hero_desc: 'The Zenith is a professional performance marketing digital ad platform, with deep data-driven insights and business expertise as our core competitiveness. We are committed to providing efficient multimedia marketing solutions and traffic acquisition services to maximize advertisers\' ROI.',
-                about_title: 'About The Zenith',
+                hero_desc: 'Zenith is a professional performance marketing digital ad platform, with deep data-driven insights and business expertise as our core competitiveness. We are committed to providing efficient multimedia marketing solutions and traffic acquisition services to maximize advertisers\' ROI.',
+                about_title: 'About Zenith',
                 about_p1: 'We are more than just a digital ad platform — we are your strategic partner for successful digital marketing. We understand market dynamics and are dedicated to continuous innovation, ensuring your advertising investments deliver outstanding results.',
                 about_p2: 'Let\'s build an exceptional digital marketing journey together, providing solid support for your business growth.',
                 stat_countries: 'Countries Covered',
