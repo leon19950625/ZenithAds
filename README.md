@@ -99,7 +99,7 @@
         css
 
         .nav-logo {
-        height: 32px;
+        height: 12px;
         width: auto;
         display: block;
 
