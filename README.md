@@ -534,7 +534,7 @@
             <!-- Logo 图片（放在标题上方） -->
             <div class="hero-logo">
                 <img 
-                    src="./new 1 logo.jpg" 
+                    src="./new 1 logo.png" 
                     alt="Zenith Logo" 
                     class="hero-logo-img"
                     onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'hero-logo-fallback\'>Zenith</span>';"
