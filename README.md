@@ -580,7 +580,7 @@
                         <div class="label" data-key="stat_countries">覆盖国家/地区</div>
                     </div>
                     <div class="stat">
-                        <div class="number">$5M+</div>
+                        <div class="number">$10M+</div>
                         <div class="label" data-key="stat_budget">年管理预算</div>
                     </div>
                     <div class="stat">
