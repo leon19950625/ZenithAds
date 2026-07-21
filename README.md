@@ -1,10 +1,14 @@
-<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zenith | 数字广告平台</title>
+    <title>The Zenith | 数字广告平台</title>
     <style>
+        /* ===== 全局平滑滚动 ===== */
+        html {
+            scroll-behavior: smooth;
+        }
+
         /* ===== 全局重置 ===== */
         * {
             margin: 0;
@@ -43,12 +47,8 @@
         .logo {
             font-size: 24px;
             font-weight: 700;
+            color: #e8edf5;
             letter-spacing: -0.5px;
-            cursor: default;
-        }
-
-        .logo span {
-            color: #4f8cf7;
         }
 
         .nav-links {
@@ -83,7 +83,6 @@
             background: #6ba0f9 !important;
         }
 
-        /* ---- 一体式语言切换按钮 ---- */
         .lang-toggle {
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(255, 255, 255, 0.12);
@@ -124,6 +123,42 @@
             margin-bottom: 28px;
         }
 
+        /* ===== Logo 图片（带动画滑入） ===== */
+        .hero-logo {
+            display: block;
+            margin-bottom: 16px;
+            animation: slideInLeft 1s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-80px);
+        }
+
+        .hero-logo-img {
+            max-width: 360px;
+            width: 80%;
+            height: auto;
+            display: inline-block;
+        }
+
+        /* fallback 文字（图片加载失败时显示） */
+        .hero-logo-fallback {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #4f8cf7;
+            text-shadow: 0 0 30px rgba(79, 140, 247, 0.2);
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-80px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
         .hero h1 {
             font-size: 48px;
             font-weight: 700;
@@ -148,6 +183,23 @@
             max-width: 620px;
             margin: 0 auto 32px;
             line-height: 1.8;
+        }
+
+        /* ===== 固定配图区 ===== */
+        .fixed-image-section {
+            padding: 40px 0 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .fixed-image-section img {
+            max-width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+            height: auto;
+            max-height: 350px;
+            object-fit: cover;
+            width: 100%;
         }
 
         /* ===== 关于区域 ===== */
@@ -305,32 +357,44 @@
 
         .partners-grid {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 24px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
             text-align: center;
-            align-items: center;
+            align-items: stretch;
         }
 
         .partner-item {
-            color: #6b7ba3;
-            font-size: 14px;
-            font-weight: 500;
-            padding: 12px 0;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, 0.02);
-            transition: color 0.2s, background 0.2s;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 16px 8px;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .partner-item:hover {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(79, 140, 247, 0.3);
+            transform: translateY(-3px);
         }
 
         .partner-item .logo-placeholder {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
-            color: #4a5a7a;
-            letter-spacing: -0.5px;
+            color: #e8edf5;
+            letter-spacing: -0.3px;
+            line-height: 1.3;
+        }
+
+        .partner-item .partner-tag {
+            font-size: 11px;
+            font-weight: 400;
+            color: #6b7ba3;
+            margin-top: 2px;
+            letter-spacing: 0.3px;
         }
 
         /* ===== 联系区 ===== */
@@ -423,6 +487,9 @@
                 font-size: 15px;
                 padding: 12px 24px;
             }
+            .hero-logo-img {
+                max-width: 240px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -439,6 +506,9 @@
             .hero h1 {
                 font-size: 26px;
             }
+            .hero-logo-img {
+                max-width: 180px;
+            }
         }
     </style>
 </head>
@@ -446,14 +516,14 @@
 
     <!-- ===== 导航栏 ===== -->
     <nav class="navbar container">
+        <!-- 左上角显示纯文字 Zenith -->
         <div class="logo">Zenith</div>
         <div class="nav-links">
             <a href="#about" data-key="nav_about">关于</a>
             <a href="#services" data-key="nav_services">业务</a>
             <a href="#partners" data-key="nav_partners">合作伙伴</a>
-            <a href="#contact" class="nav-btn" data-key="nav_cta">获取方案</a>
-            <!-- 一体式语言切换按钮 -->
             <button class="lang-toggle" id="langToggle" onclick="toggleLang()">CN/EN</button>
+            <a href="#contact" class="nav-btn" data-key="nav_cta">获取方案</a>
         </div>
     </nav>
 
@@ -461,12 +531,32 @@
     <section class="hero">
         <div class="container">
             <div class="hero-badge" data-key="hero_badge">✦ 全域资源覆盖 · 数据驱动洞察</div>
+            <!-- Logo 图片（放在标题上方） -->
+            <div class="hero-logo">
+                <img 
+                    src="./logo.png" 
+                    alt="The Zenith Logo" 
+                    class="hero-logo-img"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'hero-logo-fallback\'>The Zenith</span>';"
+                />
+            </div>
             <h1 data-key="hero_title">引领数字<span>效果营销</span></h1>
             <p data-key="hero_sub">精益数字营销，助您精准触达全球高质量流量</p>
             <div class="desc" data-key="hero_desc">
-                Zenith 是一家专业从事性能营销的数字广告平台，以深刻的数据驱动洞察和商业专业知识为核心竞争力。
+                The Zenith 是一家专业从事性能营销的数字广告平台，以深刻的数据驱动洞察和商业专业知识为核心竞争力。
                 致力于提供高效的多媒体营销解决方案和流量获取服务，旨在最大化广告主的投资回报率（ROI）。
             </div>
+        </div>
+    </section>
+
+    <!-- ===== 固定配图区 ===== -->
+    <section class="fixed-image-section">
+        <div class="container">
+            <img 
+                src="https://picsum.photos/seed/tech/1200/400" 
+                alt="互联网科技配图" 
+                loading="lazy"
+            />
         </div>
     </section>
 
@@ -475,7 +565,7 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-text">
-                    <h2 data-key="about_title">关于 Zenith</h2>
+                    <h2 data-key="about_title">关于 The Zenith</h2>
                     <p data-key="about_p1">
                         我们不仅仅是数字广告平台，更是您成功数字营销策略的战略合作伙伴。我们深知市场变化，致力于不断创新，
                         以确保您的广告投资取得卓越成果。
@@ -490,7 +580,7 @@
                         <div class="label" data-key="stat_countries">覆盖国家/地区</div>
                     </div>
                     <div class="stat">
-                        <div class="number">$10M+</div>
+                        <div class="number">$5M+</div>
                         <div class="label" data-key="stat_budget">年管理预算</div>
                     </div>
                     <div class="stat">
@@ -533,7 +623,6 @@
                 </div>
             </div>
 
-            <!-- 结算方式 -->
             <div class="pricing-tags">
                 <span>CPC</span>
                 <span>CPI</span>
@@ -542,7 +631,6 @@
                 <span>CPS</span>
             </div>
 
-            <!-- 行业覆盖 -->
             <div class="industry-tags">
                 <span data-key="ind_finance">金融</span>
                 <span data-key="ind_tools">工具</span>
@@ -562,18 +650,66 @@
                 <p data-key="partners_sub">与全球顶级媒体平台深度合作</p>
             </div>
             <div class="partners-grid">
-                <div class="partner-item"><span class="logo-placeholder">Google</span></div>
-                <div class="partner-item"><span class="logo-placeholder">Meta</span></div>
-                <div class="partner-item"><span class="logo-placeholder">TikTok</span></div>
-                <div class="partner-item"><span class="logo-placeholder">Taboola</span></div>
-                <div class="partner-item"><span class="logo-placeholder">Snapchat</span></div>
-                <div class="partner-item"><span class="logo-placeholder">Yandex</span></div>
-                <div class="partner-item"><span class="logo-placeholder">YouTube</span></div>
-                <div class="partner-item"><span class="logo-placeholder">LinkedIn</span></div>
-                <div class="partner-item"><span class="logo-placeholder">Pinterest</span></div>
-                <div class="partner-item"><span class="logo-placeholder">LINE</span></div>
-                <div class="partner-item"><span class="logo-placeholder">Bing</span></div>
-                <div class="partner-item"><span class="logo-placeholder">Yahoo</span></div>
+                <div class="partner-item" style="border-left: 3px solid #ff0000;">
+                    <span class="logo-placeholder">YouTube</span>
+                    <span class="partner-tag">Ads</span>
+                </div>
+                <div class="partner-item" style="border-left: 3px solid #d5001c;">
+                    <span class="logo-placeholder">Yandex</span>
+                    <span class="partner-tag">Ads</span>
+                </div>
+                <div class="partner-item" style="border-left: 3px solid #6001d2;">
+                    <span class="logo-placeholder">yahoo!</span>
+                    <span class="partner-tag">Advertising</span>
+                </div>
+                <div class="partner-item" style="border-left: 3px solid #25f4ee;">
+                    <span class="logo-placeholder">TikTok</span>
+                    <span class="partner-tag">Ads</span>
+                </div>
+                <div class="partner-item" style="border-left: 3px solid #ff6b00;">
+                    <span class="logo-placeholder">Taboola</span>
+                    <span class="partner-tag">Ads</span>
+                </div>
+                <div class="partner-item" style="border-left: 3px solid #fffc00;">
+                    <span class="logo-placeholder">Snapchat</span>
+                    <span class="partner-tag">Ads</span>
+                </div>
+                <div class="partner-item" style="border-left: 3px solid #e60023;">
+                    <span class="logo-placeholder">Pinterest</span>
+                    <span class="partner-tag">ads</span>
+                </div>
+                <div class="partner-item" style="border-left: 3px solid #1877f2;">
+                    <span class="logo-placeholder">Meta</span>
+                    <span class="partner-tag">-</span>
+                </div>
+                <div class="partner-item" style="border-left: 3px solid #0a66c2;">
+                    <span class="logo-placeholder">LinkedIn</span>
+                    <span class="partner-tag">ads</span>
+                </div>
+                <div class="partner-item" style="border-left: 3px solid #00c300;">
+                    <span class="logo-placeholder">LINE</span>
+                    <span class="partner-tag">Ads</span>
+                </div>
+                <div class="partner-item" style="border-left: 3px solid #4285f4;">
+                    <span class="logo-placeholder">Google</span>
+                    <span class="partner-tag">Ads</span>
+                </div>
+                <div class="partner-item" style="border-left: 3px solid #1877f2;">
+                    <span class="logo-placeholder">facebook</span>
+                    <span class="partner-tag">Ads</span>
+                </div>
+                <div class="partner-item" style="border-left: 3px solid #ffc107;">
+                    <span class="logo-placeholder">Display&</span>
+                    <span class="partner-tag">Video360</span>
+                </div>
+                <div class="partner-item" style="border-left: 3px solid #1676f3;">
+                    <span class="logo-placeholder">Bing</span>
+                    <span class="partner-tag">ads</span>
+                </div>
+                <div class="partner-item" style="border-left: 3px solid #4f8cf7; opacity: 0.7;">
+                    <span class="logo-placeholder">+</span>
+                    <span class="partner-tag">更多</span>
+                </div>
             </div>
         </div>
     </section>
@@ -593,37 +729,29 @@
     <!-- ===== 页脚 ===== -->
     <div class="footer">
         <div class="container">
-            &copy; 2026 Zenith. <span data-key="footer_rights">All rights reserved.</span>
+            &copy; 2026 The Zenith. <span data-key="footer_rights">All rights reserved.</span>
         </div>
     </div>
 
     <!-- ============================================================ -->
-    <!-- ===== 双语切换 JavaScript（一体式切换） ===== -->
+    <!-- ===== 双语切换 JavaScript ===== -->
     <script>
-        // ===== 语言包 =====
         const translations = {
             zh: {
-                // 导航
                 nav_about: '关于',
                 nav_services: '业务',
                 nav_partners: '合作伙伴',
                 nav_cta: '获取方案',
-
-                // 横幅
                 hero_badge: '✦ 全域资源覆盖 · 数据驱动洞察',
                 hero_title: '引领数字<span>效果营销</span>',
                 hero_sub: '精益数字营销，助您精准触达全球高质量流量',
-                hero_desc: 'Zenith 是一家专业从事性能营销的数字广告平台，以深刻的数据驱动洞察和商业专业知识为核心竞争力。致力于提供高效的多媒体营销解决方案和流量获取服务，旨在最大化广告主的投资回报率（ROI）。',
-
-                // 关于
-                about_title: '关于 Zenith',
+                hero_desc: 'The Zenith 是一家专业从事性能营销的数字广告平台，以深刻的数据驱动洞察和商业专业知识为核心竞争力。致力于提供高效的多媒体营销解决方案和流量获取服务，旨在最大化广告主的投资回报率（ROI）。',
+                about_title: '关于 The Zenith',
                 about_p1: '我们不仅仅是数字广告平台，更是您成功数字营销策略的战略合作伙伴。我们深知市场变化，致力于不断创新，以确保您的广告投资取得卓越成果。',
                 about_p2: '让我们携手打造卓越的数字营销之路，为您的业务增长提供坚实支持。',
                 stat_countries: '覆盖国家/地区',
                 stat_budget: '年管理预算',
                 stat_partners: '合作伙伴',
-
-                // 业务
                 services_title: '效果营销平台',
                 services_sub: '覆盖营销漏斗各环节，精准触达全球高质量流量',
                 svc1_title: '联盟营销',
@@ -634,49 +762,34 @@
                 svc3_desc: 'RTB技术驱动，高效获取高质量流量',
                 svc4_title: '数据洞察',
                 svc4_desc: '深度数据分析，持续优化投放策略',
-
-                // 行业
                 ind_finance: '金融',
                 ind_tools: '工具',
                 ind_social: '社交',
                 ind_games: '游戏',
                 ind_health: '健康',
                 ind_ecommerce: '电商',
-
-                // 合作伙伴
                 partners_title: '合作伙伴',
                 partners_sub: '与全球顶级媒体平台深度合作',
-
-                // 联系
                 contact_title: '📩 开始合作',
                 contact_sub: '深入了解您的业务需求，为您量身定制最有效的广告战略',
                 contact_hint: '回复时间：24 小时内',
-
-                // 页脚
                 footer_rights: 'All rights reserved.'
             },
             en: {
-                // Navigation
                 nav_about: 'About',
                 nav_services: 'Services',
                 nav_partners: 'Partners',
                 nav_cta: 'Get Started',
-
-                // Hero
                 hero_badge: '✦ Global Coverage · Data-Driven Insights',
                 hero_title: 'Leading Digital <span>Performance Marketing</span>',
                 hero_sub: 'Precision digital marketing to reach high-quality global traffic',
-                hero_desc: 'Zenith is a professional performance marketing digital ad platform, with deep data-driven insights and business expertise as our core competitiveness. We are committed to providing efficient multimedia marketing solutions and traffic acquisition services to maximize advertisers\' ROI.',
-
-                // About
-                about_title: 'About Zenith',
+                hero_desc: 'The Zenith is a professional performance marketing digital ad platform, with deep data-driven insights and business expertise as our core competitiveness. We are committed to providing efficient multimedia marketing solutions and traffic acquisition services to maximize advertisers\' ROI.',
+                about_title: 'About The Zenith',
                 about_p1: 'We are more than just a digital ad platform — we are your strategic partner for successful digital marketing. We understand market dynamics and are dedicated to continuous innovation, ensuring your advertising investments deliver outstanding results.',
                 about_p2: 'Let\'s build an exceptional digital marketing journey together, providing solid support for your business growth.',
                 stat_countries: 'Countries Covered',
                 stat_budget: 'Annual Managed Budget',
                 stat_partners: 'Partners',
-
-                // Services
                 services_title: 'Performance Marketing Platform',
                 services_sub: 'Full-funnel coverage from affiliate marketing to programmatic buying',
                 svc1_title: 'Affiliate Marketing',
@@ -687,47 +800,34 @@
                 svc3_desc: 'RTB technology for efficient high-quality traffic acquisition',
                 svc4_title: 'Data Insights',
                 svc4_desc: 'In-depth data analysis for continuous campaign optimization',
-
-                // Industries
                 ind_finance: 'Finance',
                 ind_tools: 'Tools',
                 ind_social: 'Social',
                 ind_games: 'Games',
                 ind_health: 'Health',
                 ind_ecommerce: 'E-Commerce',
-
-                // Partners
                 partners_title: 'Partners',
                 partners_sub: 'Deep partnerships with global top media platforms',
-
-                // Contact
                 contact_title: '📩 Let\'s Partner',
                 contact_sub: 'Tell us your business needs and we\'ll tailor the most effective advertising strategy',
                 contact_hint: 'Response within 24 hours',
-
-                // Footer
                 footer_rights: 'All rights reserved.'
             }
         };
 
-        // ===== 当前语言（从 localStorage 读取，默认中文） =====
         let currentLang = localStorage.getItem('zenith_lang') || 'zh';
 
-        // ===== 切换函数 =====
         function toggleLang() {
-            // 切换语言
             currentLang = (currentLang === 'zh') ? 'en' : 'zh';
             localStorage.setItem('zenith_lang', currentLang);
             applyLanguage(currentLang);
         }
 
-        // ===== 应用语言 =====
         function applyLanguage(lang) {
             const dict = translations[lang];
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
                 if (dict[key] !== undefined) {
-                    // 如果 key 是 hero_title，需要保留内部的 <span> 标签
                     if (key === 'hero_title') {
                         el.innerHTML = dict[key];
                     } else {
@@ -735,10 +835,8 @@
                     }
                 }
             });
-            // 可选：按钮文本保持不变（CN/EN），不需要额外操作
         }
 
-        // ===== 页面加载时恢复语言 =====
         document.addEventListener('DOMContentLoaded', function() {
             applyLanguage(currentLang);
         });
